@@ -1,47 +1,51 @@
 class merge:
-    def __init__(self,arr,lb,ub):
+    def __init__(self,arr):
         self.arr = arr
-        self.c = []
-        self.lb = lb
-        self.ub = ub
-    def merge(self,lb,mid,ub):
-        i = self.lb
-        j = self.mid +1
+        self.c = [0 for i in range(len(arr)+4)]
+        
+    def merge1(self,lb,mid,ub):
+        print(lb,mid,ub)
+        i = lb
+        j = mid +1
         k = 0
-        while i<=self.mid and j<=self.ub:
-            while self.arr[i] <= self.arr[j]:
+        while i<=mid and j<=ub:
+            if self.arr[i] <= self.arr[j]:
+                print(i,j)
                 self.c[k] = self.arr[i]
                 i+=1
                 k += 1
-            while self.arr[j] <= self.arr[i]:
+            print(i,j)
+            print('Hi')
+            if self.arr[j] < self.arr[i]:
+                print(i,j)
                 self.c[k] = self.arr[j]
                 j += 1
                 k+=1
-        while i< self.mid:
+        while i<= mid:
             self.c[k] = self.arr[i]
             k+=1
             i+= 1
-        while j< self.ub:
+        while j<= ub:
             self.c[k] = self.arr[j]
             k+= 1
             j+=1
         k = 0
         i = lb
-        while i<=self.ub:
+        while i<=ub:
             self.arr[i] = self.c[k]
             i+=1
             k+=1
     def mergesort(self,lb,ub):
-        while self.lb< self.ub:
-            self.mid = (self.lb+self.ub)//2
-            self.mergesort(self.lb,self.mid)
-            self.mergesort(self.mid+1,self.ub)
-            self.merge(self.lb,self.mid,self.ub)
+        if lb< ub:
+            mid = (lb+ub)//2
+            self.mergesort(lb,mid)
+            self.mergesort(mid+1,ub)
+            self.merge1(lb,mid,ub)
     def display(self):
         print(self.arr)
         
 l = [20,10,30,12,15,25,40,36,48,18]
-ob = merge(l,0,len(l)-1)
+ob = merge(l)
 ob.mergesort(0,len(l)-1)
 ob.display()
 
