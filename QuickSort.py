@@ -31,7 +31,7 @@ class QuickSort:
 # checking again and again until it false the condition if array of pivot position is grater than array of left position than left will change to its next position 
                 lef +=1
             
-            if self.arr[piv] < self.arr[lef] : # if array element of pivot posititon is less than its left position element tahn swap 
+            if self.arr[piv] < self.arr[lef] : # if array element of pivot posititon is less than its left position element than swap 
                 self.arr[piv], self.arr[lef] = self.arr[lef], self.arr[piv]
                 piv = lef # if true than pivot will change to its left position 
                 lef += 1 # and left will shift to its next position 
