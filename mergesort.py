@@ -15,7 +15,7 @@ class merge:
                 i+=1
                 k += 1
             print(i,j)
-            print('Hi')
+            print('\n')
             if self.arr[j] < self.arr[i]:
                 print(i,j)
                 self.c[k] = self.arr[j]
