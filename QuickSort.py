@@ -60,7 +60,7 @@ class QuickSort:
 l= [20,50,46,70,8,9,16,18]
 obj = QuickSort(l,int)
 obj.Display()
-obj.Quick_Sort(0,7)
+obj.Quick_Sort(0,len(l)-1)
 obj.Display()
 obj.Insert(2)
 obj.Display()
